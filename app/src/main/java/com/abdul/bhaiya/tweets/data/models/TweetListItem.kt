@@ -1,10 +1,9 @@
-package com.abdul.bhaiya.tweets.models
+package com.abdul.bhaiya.tweets.data.models
 
 
 import com.google.gson.annotations.SerializedName
 
 //step2: create tweet model class
-
 
 data class TweetListItem(
     @SerializedName("category")

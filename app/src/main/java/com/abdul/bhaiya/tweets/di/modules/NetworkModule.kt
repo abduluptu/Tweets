@@ -1,10 +1,12 @@
-package com.abdul.bhaiya.tweets.di
+package com.abdul.bhaiya.tweets.di.modules
 
-import com.abdul.bhaiya.tweets.api.TweetsAPI
+import android.content.Context
+import com.abdul.bhaiya.tweets.data.network.TweetsAPI
 import com.abdul.bhaiya.tweets.utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -16,6 +18,12 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
 
+    @Provides
+    @Singleton
+    fun provideContext(@ApplicationContext context: Context): Context {
+        return context
+    }
+
     @Singleton
     @Provides
     fun providesRetrofit(): Retrofit {
@@ -26,7 +34,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideTweetsAPI(retrofit: Retrofit) : TweetsAPI{
+    fun provideTweetsAPI(retrofit: Retrofit): TweetsAPI {
         return retrofit.create(TweetsAPI::class.java)
     }
 }

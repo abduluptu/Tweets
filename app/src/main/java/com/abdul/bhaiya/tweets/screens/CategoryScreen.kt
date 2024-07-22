@@ -36,10 +36,24 @@ import com.abdul.bhaiya.tweets.viewmodels.CategoryViewModel
 fun CategoryScreen(onClick: (category: String) -> Unit) { //onClick-> 3
     val categoryViewModel: CategoryViewModel = hiltViewModel()
     val categories: State<List<String>> = categoryViewModel.categories.collectAsState()
+    // For network check
+    val networkError: State<String?> = categoryViewModel.networkError.collectAsState()
 
-    if (categories.value.isEmpty()) {
+    // For network check
+    if (networkError.value != null) {
         Box(
-            modifier = Modifier.fillMaxSize(1f),
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = networkError.value ?: "Unknown error",
+                color = Color.Red,
+                style = MaterialTheme.typography.headlineMedium
+            )
+        }
+    } else if (categories.value.isEmpty()) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             Text(text = "Loading...", style = MaterialTheme.typography.headlineMedium)
@@ -51,10 +65,11 @@ fun CategoryScreen(onClick: (category: String) -> Unit) { //onClick-> 3
             verticalArrangement = Arrangement.SpaceAround,
         ) {
             items(categories.value.distinct()) {
-                CategoryItem(category = it, onClick) //onClick-> 4
+                CategoryItem(category = it, onClick)
             }
         }
     }
+
 }
 
 @Composable

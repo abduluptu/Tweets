@@ -1,4 +1,4 @@
-package com.abdul.bhaiya.tweets.activity
+package com.abdul.bhaiya.tweets
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

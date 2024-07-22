@@ -1,7 +1,7 @@
-package com.abdul.bhaiya.tweets.repository
+package com.abdul.bhaiya.tweets.data.repositories
 
-import com.abdul.bhaiya.tweets.api.TweetsAPI
-import com.abdul.bhaiya.tweets.models.TweetListItem
+import com.abdul.bhaiya.tweets.data.network.TweetsAPI
+import com.abdul.bhaiya.tweets.data.models.TweetListItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject

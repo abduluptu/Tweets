@@ -3,8 +3,8 @@ package com.abdul.bhaiya.tweets.viewmodels
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.abdul.bhaiya.tweets.models.TweetListItem
-import com.abdul.bhaiya.tweets.repository.TweetRepository
+import com.abdul.bhaiya.tweets.data.models.TweetListItem
+import com.abdul.bhaiya.tweets.data.repositories.TweetRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

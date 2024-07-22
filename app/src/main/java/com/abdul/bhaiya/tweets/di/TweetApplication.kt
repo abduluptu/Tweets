@@ -1,4 +1,4 @@
-package com.abdul.bhaiya.tweets.apl
+package com.abdul.bhaiya.tweets.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
